@@ -12,4 +12,9 @@ const board = (() => {
   return {test};
 })();
 
-board.test();
+const character = (player, symbol) => {
+  return {player, symbol};
+};
+
+const p1 = character("Player 1", "X");
+const p2 = character("Player 2", "O");
