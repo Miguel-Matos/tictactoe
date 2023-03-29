@@ -34,6 +34,5 @@ const squares = (() => {
 
 // Find a way to swap out tl for any other div
 squares.tl().addEventListener('click', (e) => {
-  squares.tl().innerHTML = 'X';
-  squares.tl().disabled = true;
+  squares.tl().innerHTML += 'X';
 });
