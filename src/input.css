@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+}
+nav {
+  background-color: lightgray;
+  font-size: xx-large;
+  padding: 15px;
+  font-family: sans-serif;
+}
+
+#gameArea {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+}
+.square {
+  border: solid 1px black;
+}
