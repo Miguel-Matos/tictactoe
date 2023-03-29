@@ -11,6 +11,12 @@ nav {
   font-family: sans-serif;
 }
 
+#table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #gameArea {
   display: grid;
   grid-template-columns: 100px 100px 100px;
@@ -23,4 +29,10 @@ nav {
   font-family: sans-serif;
   align-items: center;
   font-size: 3.2rem;
+}
+
+#pturn {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 15px 0;
 }

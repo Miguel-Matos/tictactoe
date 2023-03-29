@@ -34,6 +34,7 @@ const squares = (() => {
 
 
 const squareChecker = (() => {
+  const pturn = document.querySelector('#pturn');
   let p1Turn = true;
   // Find a way to swap out tl for any other div
   squares.tl().addEventListener('click', () => {
@@ -41,10 +42,13 @@ const squareChecker = (() => {
       if (p1Turn) {
         squares.tl().innerHTML = 'X';
         p1Turn = false;
+        pturn.innerHTML = 'Player 2\'s turn'
       } else {
         squares.tl().innerHTML = 'O';
         p1Turn = true;
+        pturn.innerHTML = 'Player 1\'s turn'
       };
     }
   });
+
 })();
