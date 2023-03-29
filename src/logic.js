@@ -32,7 +32,19 @@ const squares = (() => {
   return {tl, tm, tr, ml, mm, mr, bl, bm, br};
 })();
 
-// Find a way to swap out tl for any other div
-squares.tl().addEventListener('click', (e) => {
-  squares.tl().innerHTML += 'X';
-});
+
+const squareChecker = (() => {
+  let p1Turn = true;
+  // Find a way to swap out tl for any other div
+  squares.tl().addEventListener('click', () => {
+    if (squares.tl().innerHTML === "") {
+      if (p1Turn) {
+        squares.tl().innerHTML = 'X';
+        p1Turn = false;
+      } else {
+        squares.tl().innerHTML = 'O';
+        p1Turn = true;
+      };
+    }
+  });
+})();

@@ -18,4 +18,9 @@ nav {
 }
 .square {
   border: solid 1px black;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  align-items: center;
+  font-size: 3.2rem;
 }
