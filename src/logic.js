@@ -59,24 +59,26 @@ const queryAdder = (id) => {
   return {selected};
 };
 
-const tl = queryAdder('#tl');
-tl.selected();
-const tm = queryAdder('#tm');
-tm.selected();
-const tr = queryAdder('#tr');
-tr.selected();
-const ml = queryAdder('#ml');
-ml.selected();
-const mm = queryAdder('#mm');
-mm.selected();
-const mr = queryAdder('#mr');
-mr.selected();
-const bl = queryAdder('#bl');
-bl.selected();
-const bm = queryAdder('#bm');
-bm.selected();
-const br = queryAdder('#br');
-br.selected();
+const squareCaller = (() => {
+  const tl = queryAdder('#tl');
+  tl.selected();
+  const tm = queryAdder('#tm');
+  tm.selected();
+  const tr = queryAdder('#tr');
+  tr.selected();
+  const ml = queryAdder('#ml');
+  ml.selected();
+  const mm = queryAdder('#mm');
+  mm.selected();
+  const mr = queryAdder('#mr');
+  mr.selected();
+  const bl = queryAdder('#bl');
+  bl.selected();
+  const bm = queryAdder('#bm');
+  bm.selected();
+  const br = queryAdder('#br');
+  br.selected();
+})();
 
   // Find a way to swap out tl for any other div
   // squares.tl().addEventListener('click', () => {
