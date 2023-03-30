@@ -7,7 +7,6 @@ const board = (() => {
     }
     gameBoard.push(row);
   }
-
   const test = () => console.log(gameBoard);
   return {test};
 })();
