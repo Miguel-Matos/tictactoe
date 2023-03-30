@@ -11,9 +11,12 @@ const board = (() => {
   return {test};
 })();
 
-const character = (player, symbol) => {
-  return {player, symbol};
-};
+// Works fine without
+// Debating on whether to implement or not
+
+// const character = (player, symbol) => {
+//   return {player, symbol};
+// };
 
 // Module to keep track of variables
 // that monitor state
