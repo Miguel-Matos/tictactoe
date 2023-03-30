@@ -15,22 +15,6 @@ const character = (player, symbol) => {
   return {player, symbol};
 };
 
-// Consider converting to factory and making
-// it return one at a time
-// For now this is less code so it stays
-// const squares = (() => {
-//   const tl = () => document.querySelector('#tl');
-//   const tm = () => document.querySelector('#tm');
-//   const tr = () => document.querySelector('#tr');
-//   const ml = () => document.querySelector('#ml');
-//   const mm = () => document.querySelector('#mm');
-//   const mr = () => document.querySelector('#mr');
-//   const bl = () => document.querySelector('#bl');
-//   const bm = () => document.querySelector('#bm');
-//   const br = () => document.querySelector('#br');
-//   return {tl, tm, tr, ml, mm, mr, bl, bm, br};
-// })();
-
 // Module to keep track of variables
 // that monitor state
 const stateCheck = (() => {
@@ -39,7 +23,8 @@ const stateCheck = (() => {
   return {pText, p1Turn}
 })();
 
-
+// Adds X and O to the board
+// Updates text above the board
 const queryAdder = (id) => {
   const selected = () => {
     document.querySelector(id).addEventListener('click', () => {
@@ -79,18 +64,3 @@ const squareCaller = (() => {
   const br = queryAdder('#br');
   br.selected();
 })();
-
-  // Find a way to swap out tl for any other div
-  // squares.tl().addEventListener('click', () => {
-  //   if (squares.tl().innerHTML === "") {
-  //     if (p1Turn) {
-  //       squares.tl().innerHTML = 'X';
-  //       p1Turn = false;
-  //       pturn.innerHTML = 'Player 2\'s turn'
-  //     } else {
-  //       squares.tl().innerHTML = 'O';
-  //       p1Turn = true;
-  //       pturn.innerHTML = 'Player 1\'s turn'
-  //     };
-  //   }
-  // });
