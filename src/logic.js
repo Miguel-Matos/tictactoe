@@ -13,6 +13,10 @@ const board = (() => {
 
 board.test();
 
+const checker = () => {
+  const solution = [['X', 'X', 'X']['O', 'O', 'O']];
+};
+
 // Works fine without
 // Debating on whether to implement or not
 // const character = (player, symbol) => {
@@ -52,6 +56,7 @@ const queryAdder = (id) => {
   return {selected};
 };
 
+// Creates objects from the queryAdder constructor
 const squareCaller = (() => {
   const tl = queryAdder('#tl');
   tl.selected(0, 0);
