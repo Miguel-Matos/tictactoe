@@ -31,6 +31,10 @@ nav {
   font-size: 3.2rem;
 }
 
+.square:hover {
+  background-color: whitesmoke;
+}
+
 #ptext {
   font-family: sans-serif;
   text-align: center;

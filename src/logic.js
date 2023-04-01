@@ -1,15 +1,13 @@
 const board = (() => {
   let gameBoard = [];
-  for (let i = 0; i < 3; i++) {
-    let row = [];
-    for (let j = 0; j < 3; j++) {
-      row.push('X');
-    }
-    gameBoard.push(row);
+  for (let i = 0; i < 9; i++) {
+    gameBoard.push("A");
   }
   const test = () => console.log(gameBoard);
-  return {test};
+  return {test, gameBoard};
 })();
+
+board.test();
 
 // Works fine without
 // Debating on whether to implement or not
@@ -29,16 +27,20 @@ const stateCheck = (() => {
 // Adds X and O to the board
 // Updates text above the board
 const queryAdder = (id) => {
-  const selected = () => {
+  const selected = (num) => {
     document.querySelector(id).addEventListener('click', () => {
       if (document.querySelector(id).innerHTML === "") {
         if (stateCheck.p1Turn) {
           document.querySelector(id).innerHTML = 'X';
           stateCheck.p1Turn = false;
+          board.gameBoard[num] = 'X'
+          console.log(board.gameBoard);
           stateCheck.pText.innerHTML = 'Player 2\'s turn';
         } else {
           document.querySelector(id).innerHTML = 'O';
           stateCheck.p1Turn = true;
+          board.gameBoard[num] = 'O'
+          console.log(board.gameBoard);
           stateCheck.pText.innerHTML = 'Player 1\'s turn';
         };
       };
@@ -49,21 +51,21 @@ const queryAdder = (id) => {
 
 const squareCaller = (() => {
   const tl = queryAdder('#tl');
-  tl.selected();
+  tl.selected(0);
   const tm = queryAdder('#tm');
-  tm.selected();
+  tm.selected(1);
   const tr = queryAdder('#tr');
-  tr.selected();
+  tr.selected(2);
   const ml = queryAdder('#ml');
-  ml.selected();
+  ml.selected(3);
   const mm = queryAdder('#mm');
-  mm.selected();
+  mm.selected(4);
   const mr = queryAdder('#mr');
-  mr.selected();
+  mr.selected(5);
   const bl = queryAdder('#bl');
-  bl.selected();
+  bl.selected(6);
   const bm = queryAdder('#bm');
-  bm.selected();
+  bm.selected(7);
   const br = queryAdder('#br');
-  br.selected();
+  br.selected(8);
 })();
