@@ -11,14 +11,21 @@ const board = (() => {
   return {test, gameBoard};
 })();
 
-board.test();
+// board.test();
 
-const checker = () => {
+const checker = (() => {
   let gameEnd = false;
-  const solution = [['X', 'X', 'X']['O', 'O', 'O']];
+  const solution = [['X', 'X', 'X'], ['O', 'O', 'O']];
+  const check = () => {
+    // console.log(board.gameBoard[0]);
+    // console.log(solution[0]);
+    if (board.gameBoard[0] === solution[0]) {
+      console.log('fuck');
+    }
+  }
+  return {check};
+})();
 
-
-};
 
 // Works fine without
 // Debating on whether to implement or not
@@ -44,13 +51,15 @@ const queryAdder = (id) => {
           document.querySelector(id).innerHTML = 'X';
           stateCheck.p1Turn = false;
           board.gameBoard[num1][num2] = 'X'
-          console.log(board.gameBoard);
+          // console.log(board.gameBoard);
+          checker.check();
           stateCheck.pText.innerHTML = 'Player 2\'s turn';
         } else {
           document.querySelector(id).innerHTML = 'O';
           stateCheck.p1Turn = true;
           board.gameBoard[num1][num2] = 'O'
-          console.log(board.gameBoard);
+          // console.log(board.gameBoard);
+          checker.check();
           stateCheck.pText.innerHTML = 'Player 1\'s turn';
         };
       };
