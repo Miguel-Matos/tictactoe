@@ -14,7 +14,10 @@ const board = (() => {
 board.test();
 
 const checker = () => {
+  let gameEnd = false;
   const solution = [['X', 'X', 'X']['O', 'O', 'O']];
+
+
 };
 
 // Works fine without
