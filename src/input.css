@@ -26,8 +26,11 @@ nav {
   .square {
     font-size: 3.2rem;
   }
+  #ptext {
+    font-size: 2rem;
+  }
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 700px) {
   #gameArea {
     display: grid;
     grid-template-columns: 175px 175px 175px;
@@ -36,9 +39,12 @@ nav {
   .square {
     font-size: 5.2rem;
   }
+  #ptext {
+    font-size: 3rem;
+  }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 900px) {
   #gameArea {
     display: grid;
     grid-template-columns: 250px 250px 250px;
@@ -46,6 +52,9 @@ nav {
   }
   .square {
     font-size: 8.2rem;
+  }
+  #ptext {
+    font-size: 3.5rem;
   }
 }
 
@@ -65,10 +74,17 @@ nav {
   font-family: sans-serif;
   text-align: center;
   padding: 15px 0;
-  font-size: larger;
 }
 
 #again {
   margin-top: 15px;
   padding: 5px;
 }
+
+/* .circle {
+  color: red;
+}
+
+.x {
+  color: rgb(82, 82, 146)
+} */
