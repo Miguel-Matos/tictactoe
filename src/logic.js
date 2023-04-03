@@ -20,20 +20,30 @@ const checker = (() => {
   const solution = ['XXX', 'OOO'];
   const check = () => {
 
-    //checks rows
+    //checks rows and columns
     for (let i = 0; i < 3; i++) {
         let row = board.gameBoard[i][0] + board.gameBoard[i][1] + board.gameBoard[i][2];
-        console.log(row);
+        let col = board.gameBoard[0][i] + board.gameBoard[1][i] + board.gameBoard[2][i];
+        // console.log(row);
         // console.log(solution[0]);
-        if (row === solution[0]) {
+        if (row === solution[0] || col === solution[0]) {
           console.log('P1 Wins!');
-        } else if (row === solution[1]) {
+        } else if (row === solution[1] || col === solution[1]) {
           console.log('P2 Wins!');
         }
     }
 
-    //checks collumns
-    
+    //checks columns
+    // for (let i = 0; i < 3; i++) {
+      
+    //     // console.log(col);
+    //     // console.log(solution[0]);
+    //     if (col === solution[0]) {
+    //       console.log('P1 Wins!');
+    //     } else if (row === solution[1]) {
+    //       console.log('P2 Wins!');
+    //     }
+    // }
 
   }
   return {check};
