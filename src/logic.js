@@ -13,15 +13,28 @@ const board = (() => {
 
 // board.test();
 
+
+// first implementation through brute force
 const checker = (() => {
   let gameEnd = false;
-  const solution = [['X', 'X', 'X'], ['O', 'O', 'O']];
+  const solution = ['XXX', 'OOO'];
   const check = () => {
-    console.log(board.gameBoard[0]);
-    console.log(solution[0]);
-    if (JSON.stringify(board.gameBoard[0]) === JSON.stringify(solution[0])) {
-      console.log('test');
+
+    //checks rows
+    for (let i = 0; i < 3; i++) {
+        let row = board.gameBoard[i][0] + board.gameBoard[i][1] + board.gameBoard[i][2];
+        console.log(row);
+        // console.log(solution[0]);
+        if (row === solution[0]) {
+          console.log('P1 Wins!');
+        } else if (row === solution[1]) {
+          console.log('P2 Wins!');
+        }
     }
+
+    //checks collumns
+    
+
   }
   return {check};
 })();
