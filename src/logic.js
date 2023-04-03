@@ -33,14 +33,10 @@ const checker = (() => {
     for (let i = 0; i < 3; i++) {
         let row = board.gameBoard[i][0] + board.gameBoard[i][1] + board.gameBoard[i][2];
         let col = board.gameBoard[0][i] + board.gameBoard[1][i] + board.gameBoard[2][i];
-        // console.log(row);
-        // console.log(col);
         if (row === solution[0] || col === solution[0]) {
-          // alert('P1 Wins!');
           stateCheck.gameEnd = true;
           stateCheck.winner = 'Player 1 Wins!';
         } else if (row === solution[1] || col === solution[1]) {
-          // alert('P2 Wins!');
           stateCheck.gameEnd = true;
           stateCheck.winner = 'Player 2 Wins!';
         }
@@ -50,11 +46,9 @@ const checker = (() => {
       let diagA = board.gameBoard[0][0] + board.gameBoard[1][1] + board.gameBoard[2][2];
       let diagB = board.gameBoard[0][2] + board.gameBoard[1][1] + board.gameBoard[2][0];
       if (diagA === solution[0] || diagB === solution[0]) {
-        // alert('P1 Diag');
         stateCheck.gameEnd = true;
         stateCheck.winner = 'Player 1 Wins!';
       } else if (diagA === solution[1] || diagB === solution[1]) {
-        // alert('P2 Diag');
         stateCheck.gameEnd = true;
         stateCheck.winner = 'Player 2 Wins!';
       }
@@ -74,7 +68,6 @@ const queryAdder = (id) => {
       if (stateCheck.counter === 9) {
         stateCheck.gameEnd = true;
       }
-      // console.log(stateCheck.counter);
     };
 
     document.querySelector(id).addEventListener('click', () => {
@@ -129,7 +122,6 @@ const squareCaller = (() => {
   const br = queryAdder('#br');
   br.selected(2, 2);
 })();
-
 
 // Resets the game
 const newGame = (() => {
