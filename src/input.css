@@ -17,18 +17,44 @@ nav {
   align-items: center;
 }
 
-#gameArea {
-  display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px;
+@media only screen and (min-width: 400px) {
+  #gameArea {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+  }
+  .square {
+    font-size: 3.2rem;
+  }
 }
+@media only screen and (min-width: 900px) {
+  #gameArea {
+    display: grid;
+    grid-template-columns: 175px 175px 175px;
+    grid-template-rows: 175px 175px 175px;
+  }
+  .square {
+    font-size: 5.2rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #gameArea {
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    grid-template-rows: 250px 250px 250px;
+  }
+  .square {
+    font-size: 8.2rem;
+  }
+}
+
 .square {
   border: solid 1px black;
   display: flex;
   justify-content: center;
   font-family: sans-serif;
   align-items: center;
-  font-size: 3.2rem;
 }
 
 .square:hover {
