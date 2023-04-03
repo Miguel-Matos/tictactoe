@@ -1,3 +1,13 @@
+// Module to keep track of variables
+// that monitor state
+const stateCheck = (() => {
+  let pText = document.querySelector('#ptext');
+  let p1Turn = true;
+  let gameEnd = false;
+  let winner = '';
+  return {pText, p1Turn, gameEnd, winner}
+})();
+
 const board = (() => {
   let gameBoard = [];
   for (let i = 0; i < 3; i++) {
@@ -12,11 +22,8 @@ const board = (() => {
 })();
 
 // board.test();
-
-
 // first implementation through brute force
 const checker = (() => {
-  let gameEnd = false;
   const solution = ['XXX', 'OOO'];
   const check = () => {
 
@@ -27,9 +34,13 @@ const checker = (() => {
         // console.log(row);
         // console.log(solution[0]);
         if (row === solution[0] || col === solution[0]) {
-          console.log('P1 Wins!');
+          // alert('P1 Wins!');
+          stateCheck.gameEnd = true;
+          stateCheck.winner = 'Player 1 Wins!';
         } else if (row === solution[1] || col === solution[1]) {
-          console.log('P2 Wins!');
+          // alert('P2 Wins!');
+          stateCheck.gameEnd = true;
+          stateCheck.winner = 'Player 2 Wins!';
         }
     }
 
@@ -37,53 +48,47 @@ const checker = (() => {
       let diagA = board.gameBoard[0][0] + board.gameBoard[1][1] + board.gameBoard[2][2];
       let diagB = board.gameBoard[0][2] + board.gameBoard[1][1] + board.gameBoard[2][0];
       if (diagA === solution[0] || diagB === solution[0]) {
-        console.log('P1 Diag');
+        // alert('P1 Diag');
+        stateCheck.gameEnd = true;
+        stateCheck.winner = 'Player 1 Wins!';
       } else if (diagA === solution[1] || diagB === solution[1]) {
-        console.log('P2 Diag');
+        // alert('P2 Diag');
+        stateCheck.gameEnd = true;
+        stateCheck.winner = 'Player 2 Wins!';
       }
 
   }
   return {check};
 })();
 
-
-// Works fine without
-// Debating on whether to implement or not
-// const character = (player, symbol) => {
-//   return {player, symbol};
-// };
-
-// Module to keep track of variables
-// that monitor state
-const stateCheck = (() => {
-  let pText = document.querySelector('#ptext');
-  let p1Turn = true;
-  return {pText, p1Turn}
-})();
-
 // Adds X and O to the board
 // Updates text above the board
 const queryAdder = (id) => {
   const selected = (num1, num2) => {
-    document.querySelector(id).addEventListener('click', () => {
-      if (document.querySelector(id).innerHTML === "") {
-        if (stateCheck.p1Turn) {
-          document.querySelector(id).innerHTML = 'X';
-          stateCheck.p1Turn = false;
-          board.gameBoard[num1][num2] = 'X'
-          // console.log(board.gameBoard);
-          checker.check();
-          stateCheck.pText.innerHTML = 'Player 2\'s turn';
-        } else {
-          document.querySelector(id).innerHTML = 'O';
-          stateCheck.p1Turn = true;
-          board.gameBoard[num1][num2] = 'O'
-          // console.log(board.gameBoard);
-          checker.check();
-          stateCheck.pText.innerHTML = 'Player 1\'s turn';
+    if (stateCheck.gameEnd === false) {
+      document.querySelector(id).addEventListener('click', () => {
+        if (document.querySelector(id).innerHTML === "") {
+          if (stateCheck.p1Turn) {
+            document.querySelector(id).innerHTML = 'X';
+            stateCheck.p1Turn = false;
+            board.gameBoard[num1][num2] = 'X'
+            checker.check();
+            console.log(stateCheck.gameEnd);
+            stateCheck.pText.innerHTML = 'Player 2\'s turn';
+          } else {
+            document.querySelector(id).innerHTML = 'O';
+            stateCheck.p1Turn = true;
+            board.gameBoard[num1][num2] = 'O'
+            checker.check();
+            console.log(stateCheck.gameEnd);
+            stateCheck.pText.innerHTML = 'Player 1\'s turn';
+          };
+          if (stateCheck.gameEnd === true) {
+            stateCheck.pText.innerHTML = stateCheck.winner;
+          }
         };
-      };
-    });
+      });
+    }
   };
   return {selected};
 };
