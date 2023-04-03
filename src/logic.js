@@ -5,7 +5,8 @@ const stateCheck = (() => {
   let p1Turn = true;
   let gameEnd = false;
   let winner = '';
-  return {pText, p1Turn, gameEnd, winner}
+  let counter = 0;
+  return {pText, p1Turn, gameEnd, winner, counter}
 })();
 
 const board = (() => {
@@ -73,18 +74,30 @@ const queryAdder = (id) => {
             stateCheck.p1Turn = false;
             board.gameBoard[num1][num2] = 'X'
             checker.check();
-            console.log(stateCheck.gameEnd);
+            stateCheck.counter++;
+            if (stateCheck.counter === 9) {
+              stateCheck.gameEnd = true;
+            }
+            console.log(stateCheck.counter);
             stateCheck.pText.innerHTML = 'Player 2\'s turn';
           } else {
             document.querySelector(id).innerHTML = 'O';
             stateCheck.p1Turn = true;
             board.gameBoard[num1][num2] = 'O'
             checker.check();
-            console.log(stateCheck.gameEnd);
+            stateCheck.counter++;
+            if (stateCheck.counter === 9) {
+              stateCheck.gameEnd = true;
+            }
+            console.log(stateCheck.counter);
             stateCheck.pText.innerHTML = 'Player 1\'s turn';
           };
           if (stateCheck.gameEnd === true) {
-            stateCheck.pText.innerHTML = stateCheck.winner;
+            if (stateCheck.counter === 9 ){
+              stateCheck.pText.innerHTML = 'Tie!';
+            } else {
+              stateCheck.pText.innerHTML = stateCheck.winner;
+            }
           }
         };
       });
