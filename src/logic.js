@@ -33,17 +33,14 @@ const checker = (() => {
         }
     }
 
-    //checks columns
-    // for (let i = 0; i < 3; i++) {
-      
-    //     // console.log(col);
-    //     // console.log(solution[0]);
-    //     if (col === solution[0]) {
-    //       console.log('P1 Wins!');
-    //     } else if (row === solution[1]) {
-    //       console.log('P2 Wins!');
-    //     }
-    // }
+    //checks diagonal
+      let diagA = board.gameBoard[0][0] + board.gameBoard[1][1] + board.gameBoard[2][2];
+      let diagB = board.gameBoard[0][2] + board.gameBoard[1][1] + board.gameBoard[2][0];
+      if (diagA === solution[0] || diagB === solution[0]) {
+        console.log('P1 Diag');
+      } else if (diagA === solution[1] || diagB === solution[1]) {
+        console.log('P2 Diag');
+      }
 
   }
   return {check};
