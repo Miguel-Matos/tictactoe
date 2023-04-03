@@ -3,7 +3,7 @@ const board = (() => {
   for (let i = 0; i < 3; i++) {
     let row = [];
     for (let j = 0; j < 3; j++) {
-      row.push("A");
+      row.push('A');
     }
     gameBoard.push(row);
   }
@@ -17,10 +17,10 @@ const checker = (() => {
   let gameEnd = false;
   const solution = [['X', 'X', 'X'], ['O', 'O', 'O']];
   const check = () => {
-    // console.log(board.gameBoard[0]);
-    // console.log(solution[0]);
-    if (board.gameBoard[0] === solution[0]) {
-      console.log('fuck');
+    console.log(board.gameBoard[0]);
+    console.log(solution[0]);
+    if (JSON.stringify(board.gameBoard[0]) === JSON.stringify(solution[0])) {
+      console.log('test');
     }
   }
   return {check};
