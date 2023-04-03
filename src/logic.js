@@ -34,7 +34,7 @@ const checker = (() => {
         let row = board.gameBoard[i][0] + board.gameBoard[i][1] + board.gameBoard[i][2];
         let col = board.gameBoard[0][i] + board.gameBoard[1][i] + board.gameBoard[2][i];
         // console.log(row);
-        // console.log(solution[0]);
+        // console.log(col);
         if (row === solution[0] || col === solution[0]) {
           // alert('P1 Wins!');
           stateCheck.gameEnd = true;
@@ -98,6 +98,7 @@ const queryAdder = (id) => {
           } else {
             stateCheck.pText.innerHTML = stateCheck.winner;
           }
+          newGame.again.hidden = false;
         }
       };
     });
@@ -127,4 +128,31 @@ const squareCaller = (() => {
   bm.selected(2, 1);
   const br = queryAdder('#br');
   br.selected(2, 2);
+})();
+
+
+// Resets the game
+const newGame = (() => {
+  const again = document.querySelector('#again');
+  again.hidden = true;
+  function reset() {
+    stateCheck.gameEnd = false;
+    board.gameBoard = [['A', 'A', 'A'], ['A', 'A', 'A'], ['A', 'A', 'A']];
+    document.querySelector('#tl').innerHTML = '';
+    document.querySelector('#tm').innerHTML = '';
+    document.querySelector('#tr').innerHTML = '';
+    document.querySelector('#ml').innerHTML = '';
+    document.querySelector('#mm').innerHTML = '';
+    document.querySelector('#mr').innerHTML = '';
+    document.querySelector('#bl').innerHTML = '';
+    document.querySelector('#bm').innerHTML = '';
+    document.querySelector('#br').innerHTML = '';
+    stateCheck.pText.innerHTML = "Player 1's Turn";
+    stateCheck.counter = 0;
+  }
+  again.addEventListener('click', () => {
+    reset();
+    again.hidden = true;
+  })
+  return {again};
 })();

@@ -39,4 +39,10 @@ nav {
   font-family: sans-serif;
   text-align: center;
   padding: 15px 0;
+  font-size: larger;
+}
+
+#again {
+  margin-top: 15px;
+  padding: 5px;
 }
