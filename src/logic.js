@@ -9,6 +9,8 @@ const stateCheck = (() => {
   return {pText, p1Turn, gameEnd, winner, counter}
 })();
 
+
+// Makes arrays to monitor game progress
 const board = (() => {
   let gameBoard = [];
   for (let i = 0; i < 3; i++) {
@@ -22,7 +24,6 @@ const board = (() => {
   return {test, gameBoard};
 })();
 
-// board.test();
 // first implementation through brute force
 const checker = (() => {
   const solution = ['XXX', 'OOO'];
@@ -66,6 +67,16 @@ const checker = (() => {
 // Updates text above the board
 const queryAdder = (id) => {
   const selected = (num1, num2) => {
+
+    function updater() {
+      checker.check();
+      stateCheck.counter++;
+      if (stateCheck.counter === 9) {
+        stateCheck.gameEnd = true;
+      }
+      console.log(stateCheck.counter);
+    };
+
     if (stateCheck.gameEnd === false) {
       document.querySelector(id).addEventListener('click', () => {
         if (document.querySelector(id).innerHTML === "") {
@@ -73,23 +84,13 @@ const queryAdder = (id) => {
             document.querySelector(id).innerHTML = 'X';
             stateCheck.p1Turn = false;
             board.gameBoard[num1][num2] = 'X'
-            checker.check();
-            stateCheck.counter++;
-            if (stateCheck.counter === 9) {
-              stateCheck.gameEnd = true;
-            }
-            console.log(stateCheck.counter);
+            updater();
             stateCheck.pText.innerHTML = 'Player 2\'s turn';
           } else {
             document.querySelector(id).innerHTML = 'O';
             stateCheck.p1Turn = true;
             board.gameBoard[num1][num2] = 'O'
-            checker.check();
-            stateCheck.counter++;
-            if (stateCheck.counter === 9) {
-              stateCheck.gameEnd = true;
-            }
-            console.log(stateCheck.counter);
+            updater();
             stateCheck.pText.innerHTML = 'Player 1\'s turn';
           };
           if (stateCheck.gameEnd === true) {
@@ -102,6 +103,7 @@ const queryAdder = (id) => {
         };
       });
     }
+
   };
   return {selected};
 };
