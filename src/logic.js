@@ -74,35 +74,34 @@ const queryAdder = (id) => {
       if (stateCheck.counter === 9) {
         stateCheck.gameEnd = true;
       }
-      console.log(stateCheck.counter);
+      // console.log(stateCheck.counter);
     };
 
-    if (stateCheck.gameEnd === false) {
-      document.querySelector(id).addEventListener('click', () => {
-        if (document.querySelector(id).innerHTML === "") {
-          if (stateCheck.p1Turn) {
-            document.querySelector(id).innerHTML = 'X';
-            stateCheck.p1Turn = false;
-            board.gameBoard[num1][num2] = 'X'
-            updater();
-            stateCheck.pText.innerHTML = 'Player 2\'s turn';
-          } else {
-            document.querySelector(id).innerHTML = 'O';
-            stateCheck.p1Turn = true;
-            board.gameBoard[num1][num2] = 'O'
-            updater();
-            stateCheck.pText.innerHTML = 'Player 1\'s turn';
-          };
-          if (stateCheck.gameEnd === true) {
-            if (stateCheck.counter === 9 ){
-              stateCheck.pText.innerHTML = 'Tie!';
-            } else {
-              stateCheck.pText.innerHTML = stateCheck.winner;
-            }
-          }
+    document.querySelector(id).addEventListener('click', () => {
+      if (stateCheck.gameEnd === false && document.querySelector(id).innerHTML === "") {
+        if (stateCheck.p1Turn) {
+          document.querySelector(id).innerHTML = 'X';
+          stateCheck.p1Turn = false;
+          board.gameBoard[num1][num2] = 'X'
+          updater();
+          stateCheck.pText.innerHTML = 'Player 2\'s turn';
+        } else {
+          document.querySelector(id).innerHTML = 'O';
+          stateCheck.p1Turn = true;
+          board.gameBoard[num1][num2] = 'O'
+          updater();
+          stateCheck.pText.innerHTML = 'Player 1\'s turn';
         };
-      });
-    }
+        if (stateCheck.gameEnd === true) {
+          if (stateCheck.counter === 9 ){
+            stateCheck.pText.innerHTML = 'Tie!';
+          } else {
+            stateCheck.pText.innerHTML = stateCheck.winner;
+          }
+        }
+      };
+    });
+    
 
   };
   return {selected};
